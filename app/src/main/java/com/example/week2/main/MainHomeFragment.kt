@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.week2.CountActivity
+import com.example.week2.count.CountDetailActivity
+import com.example.week2.count.CountSelectActivity
 import com.example.week2.databinding.FragmentMainHomeBinding
 import java.util.*
 
@@ -32,7 +33,7 @@ class MainHomeFragment : Fragment() {
 
     private fun countActivityMove(){
         binding.fabCount.setOnClickListener {
-            val intent = Intent(activity,CountActivity::class.java)
+            val intent = Intent(activity, CountSelectActivity::class.java)
             startActivity(intent)
         }
     }

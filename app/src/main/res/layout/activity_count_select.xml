@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".count.CountSelectActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/one_mobile_title"
+                android:text="시간"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <NumberPicker
+                android:id="@+id/num_pick_hour"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:theme="@style/AppTheme.Picker" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/one_mobile_title"
+                android:text="분"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <NumberPicker
+                android:id="@+id/num_pick_minute"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:theme="@style/AppTheme.Picker" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/one_mobile_title"
+                android:text="초"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <NumberPicker
+                android:id="@+id/num_pick_second"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:theme="@style/AppTheme.Picker" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btn_detail_count"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="@color/light_yellow"
+        android:fontFamily="@font/one_mobile_title"
+        android:text="시작"
+        android:textColor="@color/dark_gray"
+        android:textStyle="bold" />
+
+</LinearLayout>
+
