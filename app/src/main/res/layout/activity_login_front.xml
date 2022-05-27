@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context=".login.LoginFrontActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/one_mobile_title"
+        android:lineSpacingMultiplier="1.15"
+        android:text="복잡한 일상을\n단순하게!"
+        android:textColor="@color/dark_gray"
+        android:textScaleX="1.08"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="27dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/one_mobile_title"
+        android:lineSpacingMultiplier="1.3"
+        android:text="루티너리는 행동 과학 타이머로\n여러분의 습관을 만들어줘요."
+        android:textColor="@color/light_gray"
+        android:textScaleX="1.1"
+        android:textSize="15sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/selector_bg_hello"
+        android:drawableEnd="@drawable/icon_hello"
+        android:fontFamily="@font/one_mobile_title"
+        android:paddingStart="80dp"
+        android:paddingEnd="80dp"
+        android:text="반가워"
+        android:textColor="@color/dark_gray"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/one_mobile_title"
+        android:text="이미 가입하셨나요? 로그인하기"
+        android:textColor="@color/light_gray_2"
+        android:textSize="15sp" />
+
+</LinearLayout>
