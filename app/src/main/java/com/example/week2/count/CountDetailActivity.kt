@@ -13,12 +13,10 @@ import kotlin.concurrent.timer
 class CountDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCountDetailBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCountDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         getTimeData()
     }
 
@@ -61,9 +59,11 @@ class CountDetailActivity : AppCompatActivity() {
 //    }
 
     private fun getTimeData() {
+
         binding.tvHour.text = intent.getStringExtra("hour")
         binding.tvMinute.text = intent.getStringExtra("minute")
         binding.tvSecond.text = intent.getStringExtra("second")
+
     }
 
 //    private fun stopCountDown() {

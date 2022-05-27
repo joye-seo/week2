@@ -46,12 +46,12 @@ class CountSelectActivity : AppCompatActivity() {
     private fun numberPicker() = with(binding) {
         btnDetailCount.setOnClickListener {
             var hour = numPickHour.value
-            var minute = numPickMinute.value
-            var second = numPickSecond.value
+            var minute = "%02d".format(numPickMinute.value)
+            var second = "%02d".format(numPickSecond.value)
 
             val intent = Intent(this@CountSelectActivity, CountDetailActivity::class.java)
-            intent.putExtra("hour", hour.toString()).putExtra("minute", minute.toString())
-                .putExtra("second", second.toString())
+            intent.putExtra("hour", hour.toString()).putExtra("minute", minute)
+                .putExtra("second", second)
             startActivity(intent)
 
             Log.d("test", "$minute")
