@@ -11,18 +11,21 @@
         android:theme="@style/Theme.Week2" >
         <activity
             android:name=".count.CountSelectActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".count.CountDetailActivity"
             android:exported="false" />
         <activity
             android:name=".login.LoginFrontActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".tutorial.TutorialActivity"
@@ -32,7 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="false" />
+            android:exported="true"/>
         <activity
             android:name=".main.MainActivity"
             android:exported="true" />
