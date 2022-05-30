@@ -6,44 +6,33 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.week2.databinding.ActivityCountDetailBinding
+import java.text.DecimalFormat
+import kotlin.properties.Delegates
 
 class CountDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCountDetailBinding
+
+    private var countStart = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCountDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        getTimeData()
-
-        binding.btnStart.setOnClickListener {
-
-            countDownTimer()
-
-        }
-
-    }
-
-
-    fun start() {
-
-    }
-
-    fun pause() {
+//        getTimeData()
+        countFirstDownTimer()
 
     }
 
     override fun onStart() {
         super.onStart()
+        // binding.btnRestart.callOnClick()
 
     }
 
-
-    private fun time(stop: Unit) {
-        binding.btnStart.setOnClickListener {
-            start()
-        }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
 
@@ -51,67 +40,78 @@ class CountDetailActivity : AppCompatActivity() {
         super.onRestart()
         Toast.makeText(this, "다시돌아오셨네요:)!!", Toast.LENGTH_SHORT).show()
 
-    }
-
-
-    override fun onStop() {
-        super.onStop()
 
     }
 
-    private fun getTimeData() {
-
-        binding.tvHour.text = intent.getStringExtra("hour")
-        binding.tvMinute.text = intent.getStringExtra("minute")
-        binding.tvSecond.text = intent.getStringExtra("second")
-
-
+    override fun onPause() {
+        super.onPause()
+        binding.btnPause.callOnClick()
     }
 
-    private fun countDownTimer() {
+    private var getHour = 0L
 
-        val getHour = intent.getStringExtra("hour")!!.toLong()
-        val getMinute = intent.getStringExtra("minute")!!.toLong()
-        val getSecond = intent.getStringExtra("second")!!.toLong()
+    private fun countFirstDownTimer() {
 
-        Log.d("test1", "$getHour")
+        var getHour = intent.getStringExtra("hour")!!.toLong()
+        var getMinute = intent.getStringExtra("minute")!!.toLong()
+        var getSecond = intent.getStringExtra("second")!!.toLong()
 
-        var totalTime = (getHour * 60 * 60 * 1000) + (getMinute * 60 * 1000) + (getSecond * 1000)
-
-        Log.d("test2", "$totalTime")
-
+        var totalTime = (getHour * 60 * 60 * 1000) + (getMinute * 60 * 1000) + (getSecond * 1000) + 1000
 
         val time = object : CountDownTimer(totalTime, 1000) {
 
             override fun onTick(p0: Long) {
 
+//                val second = (totalTime % (60 * 60 * 1000) % (60 * 1000) / 1000).toString()
+
                 totalTime = p0 - 1000
+//                Log.d("test4", "$totalTime")
 
-                Log.d("test4", "$totalTime")
+                val df1 = DecimalFormat("00")
 
-                binding.tvHour.text = (totalTime / (60 * 60 * 1000)).toString()
-                binding.tvMinute.text = (totalTime % (60 * 60 * 1000) / (60 * 1000)).toString()
-                binding.tvSecond.text = (totalTime % (60 * 60 * 1000) % (60 * 1000) / 1000).toString()
+                val hour = totalTime / (60 * 60 * 1000)
+                val minute = df1.format(totalTime % (60 * 60 * 1000) / (60 * 1000))
+                val second = df1.format(totalTime % (60 * 60 * 1000) % (60 * 1000) / 1000)
+
+                binding.tvHour.text = hour.toString()
+                binding.tvMinute.text = minute.toString()
+                binding.tvSecond.text = second.toString()
+
+
+                if (binding.btnRestart.isClickable) {
+
+                }
+
 
             }
 
             override fun onFinish() {
-                totalTime <1000
+                totalTime < 1000
             }
 
         }
         time.start()
 
-        binding.btnReset.setOnClickListener {
+        binding.btnRestart.setOnClickListener {
+
+
+            getHour = (totalTime / (60 * 60 * 1000))
+
+            return@setOnClickListener
+
+//            var currentHour = getHour
+//            var currentMinute = getMinute
+//            var currentSecond = getSecond
+//
+//            var totalCurrentTime =
+//                (currentHour * 60 * 60 * 1000) + (currentMinute * 60 * 1000) + (currentSecond * 1000) + 1000
+        }
+
+        binding.btnPause.setOnClickListener {
             time.cancel()
             Log.d("test5", "$totalTime")
         }
+
     }
-
-
-    private fun updateRemainTime(remainSec: Long) {
-        val remainSecond = remainSec / 60
-    }
-
 
 }
